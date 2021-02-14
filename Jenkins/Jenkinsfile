@@ -1,0 +1,27 @@
+#!/usr/bin/groovy
+
+pipeline {
+  agent any // required 
+
+  stages {
+
+    stage('build') {
+      steps {
+        echo "Build docker image"
+      }
+    }
+
+    stage('test') {
+      steps {
+        echo "Run unit tests"
+      }
+    }
+
+    stage('deploy') {
+      steps {
+        echo "Deploy"
+      }
+    }
+
+  }
+}
