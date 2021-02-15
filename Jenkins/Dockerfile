@@ -1,14 +1,15 @@
 # base image 
-FROM alpine
+FROM alpine:3.7
 
-# Install python and pip 
-RUN apk add --update python3 
+# Install python 3 and pip
+RUN apk add --update python3
 
 # Base workspace 
 WORKDIR /usr/src/app/
 
 # Install python modules 
 COPY requirements.txt .
+RUN pip3 install --no-cache --upgrade pip setuptools
 RUN pip3 install --no-cache-dir -r ./requirements.txt 
 
 # Copy other files 
